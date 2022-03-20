@@ -1,4 +1,15 @@
-import { START_OF_HARD_QUESTIONS, READY_YES, CHALLENGE_COMPLETED, PERFORM_SUM, FIND_LARGEST_NUMBER, FIND_EVEN_CHARACTER_STRINGS, SORT_WORDS, FIND_NHL_TEAM, FIND_BASEBALL_TEAM, FIND_TEAM_PER_ESTABLISHMENT_YEAR, NO_RESPONSE_REQUIRED } from './../constants/chatbot-constants';
+import {
+    START_OF_HARD_QUESTIONS, 
+    READY_YES, 
+    CHALLENGE_COMPLETED, 
+    PERFORM_SUM, 
+    FIND_LARGEST_NUMBER, 
+    FIND_EVEN_CHARACTER_STRINGS, 
+    SORT_WORDS, 
+    FIND_BASED_ON_TEAMINFO, 
+    FIND_TEAM_PER_ESTABLISHMENT_YEAR, 
+    NO_RESPONSE_REQUIRED 
+} from './../constants/chatbot-constants';
 // @ts-ignore
 import { NlpManager } from 'node-nlp';
 
@@ -17,8 +28,7 @@ const langProcessDataFeed = async () => {
     manager.addDocument('en', 'What is the largest of the following numbers:', 'questions.largest');
     manager.addDocument('en', 'Please repeat only the words with an even number of letters:', 'questions.repeateven');
     manager.addDocument('en', 'Please alphabetize the following words:', 'questions.sortwords');
-    manager.addDocument('en', 'Which of the following is an NHL team::', 'questions.findNHL');
-    manager.addDocument('en', 'Which of the following is a baseball team:', 'questions.findbaseball');
+    manager.addDocument('en', 'Which of the following is team:', 'questions.findteamDetail');
     manager.addDocument('en', 'What sports teams in the data set were established:', 'questions.establish');
 
     // Train also the NLG
@@ -30,8 +40,7 @@ const langProcessDataFeed = async () => {
     manager.addAnswer('en', 'questions.largest', FIND_LARGEST_NUMBER);
     manager.addAnswer('en', 'questions.repeateven', FIND_EVEN_CHARACTER_STRINGS);
     manager.addAnswer('en', 'questions.sortwords', SORT_WORDS);
-    manager.addAnswer('en', 'questions.findNHL', FIND_NHL_TEAM);
-    manager.addAnswer('en', 'questions.findbaseball', FIND_BASEBALL_TEAM);
+    manager.addAnswer('en', 'questions.findteamDetail', FIND_BASED_ON_TEAMINFO);
     manager.addAnswer('en', 'questions.establish', FIND_TEAM_PER_ESTABLISHMENT_YEAR);
 
     // Train and save the model.

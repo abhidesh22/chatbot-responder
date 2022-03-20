@@ -1,4 +1,3 @@
-import { READY_YES, PERFORM_SUM, FIND_LARGEST_NUMBER, FIND_EVEN_CHARACTER_STRINGS, SORT_WORDS, FIND_NHL_TEAM, FIND_BASEBALL_TEAM, FIND_TEAM_PER_ESTABLISHMENT_YEAR, CHALLENGE_COMPLETED, NO_RESPONSE_REQUIRED } from './../constants/chatbot-constants';
 import { ChallengeQnA } from './../interfaces/challengeQnA';
 import { ChatbotApiHandler } from './../services/chatbot-api';
 
@@ -7,8 +6,24 @@ import { langProcessDataFeed } from '../services/lang-process';
 import { Dataset } from '../interfaces/dataset';
 import { ChallengeHistory } from '../models/challenge-history';
 import { BadRequestError, NotFoundError } from '@cygnetops/common';
-import { START_OF_HARD_QUESTIONS } from '../constants/chatbot-constants';
-
+import {
+    READY_YES,
+    PERFORM_SUM,
+    FIND_LARGEST_NUMBER,
+    FIND_EVEN_CHARACTER_STRINGS,
+    SORT_WORDS,
+    FIND_TEAM_PER_ESTABLISHMENT_YEAR,
+    CHALLENGE_COMPLETED,
+    NO_RESPONSE_REQUIRED,
+    ALL_SPORTS,
+    ALL_LEAGUES,
+    START_OF_HARD_QUESTIONS,
+    FIND_BASED_ON_TEAMINFO
+} from './../constants/chatbot-constants';
+interface CheckTeam {
+    checkType: string,
+    checkValue: string
+}
 export class ChatbotController {
 
     /*
@@ -108,28 +123,17 @@ export class ChatbotController {
                     replyToQuestion = stringArray.join(',');
                     break;
 
-                case FIND_NHL_TEAM:
-                    workingElementArray = ChatbotController.getWordsFromQuestion(questionToCheck);;
-                    workingAnswerArray = [];
-                    if(dataset) {
-                        dataset.teams.forEach(team => {
-                            if(workingElementArray.includes(team.name) && team.league === 'NHL') {
-                                workingAnswerArray.push(team.name);
-                            }
-                        });
-                        replyToQuestion = workingAnswerArray?.join(',');
-                    } else {
-                        console.log('error in fetching dataset');
-                    }
-                    break;
-
-                case FIND_BASEBALL_TEAM:
+                case FIND_BASED_ON_TEAMINFO:
                     workingElementArray = ChatbotController.getWordsFromQuestion(questionToCheck);
+                    const whatToFind = ChatbotController.getWhatToFind(questionToCheck);
                     workingAnswerArray = [];
                     if(dataset) {
                         dataset.teams.forEach(team => {
-                            if(workingElementArray.includes(team.name) && team.sport === 'baseball') {
-                                workingAnswerArray.push(team.name);
+                            if(workingElementArray.includes(team.name)) {
+                                if((whatToFind.checkType === 'sport' && whatToFind.checkValue === team.sport)
+                                    || (whatToFind.checkType === 'league' && whatToFind.checkValue === team.league)) {
+                                        workingAnswerArray.push(team.name);
+                                    }
                             }
                         });
                         replyToQuestion = workingAnswerArray?.join(',');
@@ -192,13 +196,45 @@ export class ChatbotController {
         return ;
     }
 
+    /*
+        function: getNumbersFromQuestion
+        description: extracting numbers out of the number questons
+        returns: number array
+    */
+
     public static getNumbersFromQuestion(questionToCheck: string): number[] {
         return questionToCheck.split(':')[1].split(',').map((ele: string) =>  {
             return ele.endsWith('?') ? Number(ele.split('?')[0]) : Number(ele);
         });
     }
 
+    /*
+        function: getWordsFromQuestion
+        description: extracting words out of the number questons
+        returns: string array
+    */
+
     public static getWordsFromQuestion(questionToCheck: string): string[] {
-        return questionToCheck.slice(0, -1).split(':')[1].split(',').map(ele => ele.trim())
+        return questionToCheck.slice(0, -1).split(':')[1].split(',').map(ele => ele.trim());
+    }
+
+    /*
+        function: getWhatToFind
+        description: This function makes the team questions generi in nature. It will be able to detect if the team question is to find
+        NHL, NFL league or it its about sports name like baseball,tennis.
+        returns: string array
+    */
+    public static getWhatToFind(questionToCheck: string): CheckTeam {
+        const workingArr = questionToCheck.split('team')[0].trim().split(' ');
+        const workingVar = workingArr[workingArr.length-1];
+        if(ALL_LEAGUES.includes(workingVar)) {
+            return {checkType: 'league' , checkValue: workingVar }
+        } else {
+            if(ALL_SPORTS.includes(workingVar)) {
+                return {checkType: 'sport' , checkValue: workingVar }
+            } else {
+                return {checkType: '', checkValue: ''}
+            }
+        }
     }
 }
