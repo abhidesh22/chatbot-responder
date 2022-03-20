@@ -1,0 +1,12 @@
+export const BASE_URL = 'https://us-central1-rival-chatbot-challenge.cloudfunctions.net';
+export const READY_YES = 'yes';
+export const PERFORM_SUM = 'sum';
+export const FIND_LARGEST_NUMBER = 'largest';
+export const FIND_EVEN_CHARACTER_STRINGS = 'repeateven';
+export const SORT_WORDS = 'sortwords';
+export const FIND_NHL_TEAM = 'findNHL';
+export const FIND_BASEBALL_TEAM = 'findbaseball';
+export const FIND_TEAM_PER_ESTABLISHMENT_YEAR = 'establish';
+export const CHALLENGE_COMPLETED = 'goodbye';
+export const START_OF_HARD_QUESTIONS = 'hardquestionsStart';
+export const NO_RESPONSE_REQUIRED = '';

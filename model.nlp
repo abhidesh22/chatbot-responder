@@ -1,0 +1,1407 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "challeng,chatbot,rival,the,to,welcom": {
+            "intent": "greetings.noresp",
+            "domain": "default"
+          },
+          "do,first,is,let,math,problem,some": {
+            "intent": "greetings.noresp",
+            "domain": "default"
+          },
+          "alright,do,harder,is,let,question,some": {
+            "intent": "greetings.hardquestions",
+            "domain": "default"
+          },
+          "are,begin,readi,to,you": {
+            "intent": "greetings.yesno",
+            "domain": "default"
+          },
+          "are,continu,great,question,readi,some,to,word,you": {
+            "intent": "greetings.yesno",
+            "domain": "default"
+          },
+          "are,go,readi,to,you": {
+            "intent": "greetings.yesno",
+            "domain": "default"
+          },
+          "challeng,chatbot,for,rival,take,thank,the,you": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "follow,is,number,of,sum,the,what": {
+            "intent": "questions.sum",
+            "domain": "default"
+          },
+          "follow,is,largest,number,of,the,what": {
+            "intent": "questions.largest",
+            "domain": "default"
+          },
+          "an,even,letter,number,of,onli,pleas,repeat,the,with,word": {
+            "intent": "questions.repeateven",
+            "domain": "default"
+          },
+          "alphabet,follow,pleas,the,word": {
+            "intent": "questions.sortwords",
+            "domain": "default"
+          },
+          "an,follow,is,nhl,of,team,the,which": {
+            "intent": "questions.findNHL",
+            "domain": "default"
+          },
+          "a,basebal,follow,is,of,team,the,which": {
+            "intent": "questions.findbaseball",
+            "domain": "default"
+          },
+          "data,establish,in,set,sport,team,the,were,what": {
+            "intent": "questions.establish",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greetings.noresp": "default",
+          "greetings.hardquestions": "default",
+          "greetings.yesno": "default",
+          "greetings.bye": "default",
+          "questions.sum": "default",
+          "questions.largest": "default",
+          "questions.repeateven": "default",
+          "questions.sortwords": "default",
+          "questions.findNHL": "default",
+          "questions.findbaseball": "default",
+          "questions.establish": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "Welcome to the Rival Chatbot Challenge.",
+            "intent": "greetings.noresp"
+          },
+          {
+            "domain": "default",
+            "utterance": "First, let's do some math problems",
+            "intent": "greetings.noresp"
+          },
+          {
+            "domain": "default",
+            "utterance": "Alright! Let's do some harder questions.",
+            "intent": "greetings.hardquestions"
+          },
+          {
+            "domain": "default",
+            "utterance": "Are you ready to begin?",
+            "intent": "greetings.yesno"
+          },
+          {
+            "domain": "default",
+            "utterance": "Great! Are you ready to continue to some word questions?",
+            "intent": "greetings.yesno"
+          },
+          {
+            "domain": "default",
+            "utterance": "Are you ready to go?",
+            "intent": "greetings.yesno"
+          },
+          {
+            "domain": "default",
+            "utterance": "Thank you for taking the Rival Chatbot Challenge",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is the sum of the following numbers",
+            "intent": "questions.sum"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is the largest of the following numbers:",
+            "intent": "questions.largest"
+          },
+          {
+            "domain": "default",
+            "utterance": "Please repeat only the words with an even number of letters:",
+            "intent": "questions.repeateven"
+          },
+          {
+            "domain": "default",
+            "utterance": "Please alphabetize the following words:",
+            "intent": "questions.sortwords"
+          },
+          {
+            "domain": "default",
+            "utterance": "Which of the following is an NHL team::",
+            "intent": "questions.findNHL"
+          },
+          {
+            "domain": "default",
+            "utterance": "Which of the following is a baseball team:",
+            "intent": "questions.findbaseball"
+          },
+          {
+            "domain": "default",
+            "utterance": "What sports teams in the data set were established:",
+            "intent": "questions.establish"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "welcom": 1,
+              "to": 1,
+              "the": 1,
+              "rival": 1,
+              "chatbot": 1,
+              "challeng": 1,
+              "first": 1,
+              "let": 1,
+              "is": 1,
+              "do": 1,
+              "some": 1,
+              "math": 1,
+              "problem": 1,
+              "alright": 1,
+              "harder": 1,
+              "question": 1,
+              "are": 1,
+              "you": 1,
+              "readi": 1,
+              "begin": 1,
+              "great": 1,
+              "continu": 1,
+              "word": 1,
+              "go": 1,
+              "thank": 1,
+              "for": 1,
+              "take": 1,
+              "what": 1,
+              "sum": 1,
+              "of": 1,
+              "follow": 1,
+              "number": 1,
+              "largest": 1,
+              "pleas": 1,
+              "repeat": 1,
+              "onli": 1,
+              "with": 1,
+              "an": 1,
+              "even": 1,
+              "letter": 1,
+              "alphabet": 1,
+              "which": 1,
+              "nhl": 1,
+              "team": 1,
+              "a": 1,
+              "basebal": 1,
+              "sport": 1,
+              "in": 1,
+              "data": 1,
+              "set": 1,
+              "were": 1,
+              "establish": 1
+            },
+            "intents": {
+              "greetings.noresp": 1,
+              "greetings.hardquestions": 1,
+              "greetings.yesno": 1,
+              "greetings.bye": 1,
+              "questions.sum": 1,
+              "questions.largest": 1,
+              "questions.repeateven": 1,
+              "questions.sortwords": 1,
+              "questions.findNHL": 1,
+              "questions.findbaseball": 1,
+              "questions.establish": 1
+            },
+            "intentFeatures": {
+              "greetings.noresp": {
+                "welcom": 1,
+                "to": 1,
+                "the": 1,
+                "rival": 1,
+                "chatbot": 1,
+                "challeng": 1,
+                "first": 1,
+                "let": 1,
+                "is": 1,
+                "do": 1,
+                "some": 1,
+                "math": 1,
+                "problem": 1
+              },
+              "greetings.hardquestions": {
+                "alright": 1,
+                "let": 1,
+                "is": 1,
+                "do": 1,
+                "some": 1,
+                "harder": 1,
+                "question": 1
+              },
+              "greetings.yesno": {
+                "are": 1,
+                "you": 1,
+                "readi": 1,
+                "to": 1,
+                "begin": 1,
+                "great": 1,
+                "continu": 1,
+                "some": 1,
+                "word": 1,
+                "question": 1,
+                "go": 1
+              },
+              "greetings.bye": {
+                "thank": 1,
+                "you": 1,
+                "for": 1,
+                "take": 1,
+                "the": 1,
+                "rival": 1,
+                "chatbot": 1,
+                "challeng": 1
+              },
+              "questions.sum": {
+                "what": 1,
+                "is": 1,
+                "the": 1,
+                "sum": 1,
+                "of": 1,
+                "follow": 1,
+                "number": 1
+              },
+              "questions.largest": {
+                "what": 1,
+                "is": 1,
+                "the": 1,
+                "largest": 1,
+                "of": 1,
+                "follow": 1,
+                "number": 1
+              },
+              "questions.repeateven": {
+                "pleas": 1,
+                "repeat": 1,
+                "onli": 1,
+                "the": 1,
+                "word": 1,
+                "with": 1,
+                "an": 1,
+                "even": 1,
+                "number": 1,
+                "of": 1,
+                "letter": 1
+              },
+              "questions.sortwords": {
+                "pleas": 1,
+                "alphabet": 1,
+                "the": 1,
+                "follow": 1,
+                "word": 1
+              },
+              "questions.findNHL": {
+                "which": 1,
+                "of": 1,
+                "the": 1,
+                "follow": 1,
+                "is": 1,
+                "an": 1,
+                "nhl": 1,
+                "team": 1
+              },
+              "questions.findbaseball": {
+                "which": 1,
+                "of": 1,
+                "the": 1,
+                "follow": 1,
+                "is": 1,
+                "a": 1,
+                "basebal": 1,
+                "team": 1
+              },
+              "questions.establish": {
+                "what": 1,
+                "sport": 1,
+                "team": 1,
+                "in": 1,
+                "the": 1,
+                "data": 1,
+                "set": 1,
+                "were": 1,
+                "establish": 1
+              }
+            },
+            "featuresToIntent": {
+              "welcom": [
+                "greetings.noresp"
+              ],
+              "to": [
+                "greetings.noresp",
+                "greetings.yesno"
+              ],
+              "the": [
+                "greetings.noresp",
+                "greetings.bye",
+                "questions.sum",
+                "questions.largest",
+                "questions.repeateven",
+                "questions.sortwords",
+                "questions.findNHL",
+                "questions.findbaseball",
+                "questions.establish"
+              ],
+              "rival": [
+                "greetings.noresp",
+                "greetings.bye"
+              ],
+              "chatbot": [
+                "greetings.noresp",
+                "greetings.bye"
+              ],
+              "challeng": [
+                "greetings.noresp",
+                "greetings.bye"
+              ],
+              "first": [
+                "greetings.noresp"
+              ],
+              "let": [
+                "greetings.noresp",
+                "greetings.hardquestions"
+              ],
+              "is": [
+                "greetings.noresp",
+                "greetings.hardquestions",
+                "questions.sum",
+                "questions.largest",
+                "questions.findNHL",
+                "questions.findbaseball"
+              ],
+              "do": [
+                "greetings.noresp",
+                "greetings.hardquestions"
+              ],
+              "some": [
+                "greetings.noresp",
+                "greetings.hardquestions",
+                "greetings.yesno"
+              ],
+              "math": [
+                "greetings.noresp"
+              ],
+              "problem": [
+                "greetings.noresp"
+              ],
+              "alright": [
+                "greetings.hardquestions"
+              ],
+              "harder": [
+                "greetings.hardquestions"
+              ],
+              "question": [
+                "greetings.hardquestions",
+                "greetings.yesno"
+              ],
+              "are": [
+                "greetings.yesno"
+              ],
+              "you": [
+                "greetings.yesno",
+                "greetings.bye"
+              ],
+              "readi": [
+                "greetings.yesno"
+              ],
+              "begin": [
+                "greetings.yesno"
+              ],
+              "great": [
+                "greetings.yesno"
+              ],
+              "continu": [
+                "greetings.yesno"
+              ],
+              "word": [
+                "greetings.yesno",
+                "questions.repeateven",
+                "questions.sortwords"
+              ],
+              "go": [
+                "greetings.yesno"
+              ],
+              "thank": [
+                "greetings.bye"
+              ],
+              "for": [
+                "greetings.bye"
+              ],
+              "take": [
+                "greetings.bye"
+              ],
+              "what": [
+                "questions.sum",
+                "questions.largest",
+                "questions.establish"
+              ],
+              "sum": [
+                "questions.sum"
+              ],
+              "of": [
+                "questions.sum",
+                "questions.largest",
+                "questions.repeateven",
+                "questions.findNHL",
+                "questions.findbaseball"
+              ],
+              "follow": [
+                "questions.sum",
+                "questions.largest",
+                "questions.sortwords",
+                "questions.findNHL",
+                "questions.findbaseball"
+              ],
+              "number": [
+                "questions.sum",
+                "questions.largest",
+                "questions.repeateven"
+              ],
+              "largest": [
+                "questions.largest"
+              ],
+              "pleas": [
+                "questions.repeateven",
+                "questions.sortwords"
+              ],
+              "repeat": [
+                "questions.repeateven"
+              ],
+              "onli": [
+                "questions.repeateven"
+              ],
+              "with": [
+                "questions.repeateven"
+              ],
+              "an": [
+                "questions.repeateven",
+                "questions.findNHL"
+              ],
+              "even": [
+                "questions.repeateven"
+              ],
+              "letter": [
+                "questions.repeateven"
+              ],
+              "alphabet": [
+                "questions.sortwords"
+              ],
+              "which": [
+                "questions.findNHL",
+                "questions.findbaseball"
+              ],
+              "nhl": [
+                "questions.findNHL"
+              ],
+              "team": [
+                "questions.findNHL",
+                "questions.findbaseball",
+                "questions.establish"
+              ],
+              "a": [
+                "questions.findbaseball"
+              ],
+              "basebal": [
+                "questions.findbaseball"
+              ],
+              "sport": [
+                "questions.establish"
+              ],
+              "in": [
+                "questions.establish"
+              ],
+              "data": [
+                "questions.establish"
+              ],
+              "set": [
+                "questions.establish"
+              ],
+              "were": [
+                "questions.establish"
+              ],
+              "establish": [
+                "questions.establish"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "welcom",
+                "to",
+                "the",
+                "rival",
+                "chatbot",
+                "challeng",
+                "first",
+                "let",
+                "is",
+                "do",
+                "some",
+                "math",
+                "problem",
+                "alright",
+                "harder",
+                "question",
+                "are",
+                "you",
+                "readi",
+                "begin",
+                "great",
+                "continu",
+                "word",
+                "go",
+                "thank",
+                "for",
+                "take",
+                "what",
+                "sum",
+                "of",
+                "follow",
+                "number",
+                "largest",
+                "pleas",
+                "repeat",
+                "onli",
+                "with",
+                "an",
+                "even",
+                "letter",
+                "alphabet",
+                "which",
+                "nhl",
+                "team",
+                "a",
+                "basebal",
+                "sport",
+                "in",
+                "data",
+                "set",
+                "were",
+                "establish"
+              ],
+              "intents": [
+                "greetings.noresp",
+                "greetings.hardquestions",
+                "greetings.yesno",
+                "greetings.bye",
+                "questions.sum",
+                "questions.largest",
+                "questions.repeateven",
+                "questions.sortwords",
+                "questions.findNHL",
+                "questions.findbaseball",
+                "questions.establish"
+              ],
+              "perceptrons": [
+                [
+                  3.699702024459839,
+                  3.0354106426239014,
+                  0.9250856041908264,
+                  1.9451103210449219,
+                  1.9451103210449219,
+                  1.9451103210449219,
+                  3.0469913482666016,
+                  1.32027268409729,
+                  0.6497618556022644,
+                  1.32027268409729,
+                  1.0636117458343506,
+                  3.0469913482666016,
+                  3.0469913482666016,
+                  -1.6927639245986938,
+                  -1.6927639245986938,
+                  -1.9521470069885254,
+                  -0.652043342590332,
+                  -2.403306484222412,
+                  -0.652043342590332,
+                  -0.2167920470237732,
+                  -0.19661033153533936,
+                  -0.19661033153533936,
+                  -0.4684234857559204,
+                  -0.14494673907756805,
+                  -1.738059639930725,
+                  -1.738059639930725,
+                  -1.738059639930725,
+                  -0.5472168922424316,
+                  -0.1931096911430359,
+                  -0.6906747221946716,
+                  -0.8607393503189087,
+                  -0.41705337166786194,
+                  -0.13542255759239197,
+                  -0.2117680460214615,
+                  -0.01133395079523325,
+                  -0.01133395079523325,
+                  -0.01133395079523325,
+                  -0.15289147198200226,
+                  -0.01133395079523325,
+                  -0.01133395079523325,
+                  -0.18910245597362518,
+                  -0.25396400690078735,
+                  -0.12975403666496277,
+                  -0.39002105593681335,
+                  -0.10526327043771744,
+                  -0.10526327043771744,
+                  -0.13319912552833557,
+                  -0.13319912552833557,
+                  -0.13319912552833557,
+                  -0.13319912552833557,
+                  -0.13319912552833557,
+                  -0.13319912552833557,
+                  0.7905395870393168
+                ],
+                [
+                  0,
+                  -0.5835468769073486,
+                  -0.4338045120239258,
+                  -0.014589490368962288,
+                  -0.014589490368962288,
+                  -0.014589490368962288,
+                  -1.7443493604660034,
+                  1.475791335105896,
+                  1.0481003522872925,
+                  1.475791335105896,
+                  0.914419412612915,
+                  -1.7443493604660034,
+                  -1.7443493604660034,
+                  3.2439403533935547,
+                  3.2439403533935547,
+                  2.6825692653656006,
+                  -0.5835468769073486,
+                  -0.6119639277458191,
+                  -0.5835468769073486,
+                  -0.02568494901061058,
+                  -0.5304849743843079,
+                  -0.5304849743843079,
+                  -0.5355640649795532,
+                  -0.0013494788436219096,
+                  -0.014589490368962288,
+                  -0.014589490368962288,
+                  -0.014589490368962288,
+                  -0.208375945687294,
+                  -0.08923608064651489,
+                  -0.401228666305542,
+                  -0.4056715965270996,
+                  -0.208375945687294,
+                  -0.08172417432069778,
+                  -0.0020977575331926346,
+                  0,
+                  0,
+                  0,
+                  -0.07484433799982071,
+                  0,
+                  0,
+                  -0.0020977575331926346,
+                  -0.15239334106445312,
+                  -0.07484433799982071,
+                  -0.15239334106445312,
+                  -0.049015745520591736,
+                  -0.049015745520591736,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.20123857844686985
+                ],
+                [
+                  -0.312773197889328,
+                  2.904930591583252,
+                  -1.1808427572250366,
+                  -0.7284755706787109,
+                  -0.7284755706787109,
+                  -0.7284755706787109,
+                  -0.12372438609600067,
+                  -0.45913711190223694,
+                  -0.5817182064056396,
+                  -0.45913711190223694,
+                  -0.03334826976060867,
+                  -0.12372438609600067,
+                  -0.12372438609600067,
+                  -0.26885631680488586,
+                  -0.26885631680488586,
+                  0.16174529492855072,
+                  3.2293550968170166,
+                  2.814772844314575,
+                  3.2293550968170166,
+                  1.3424222469329834,
+                  0.5118546485900879,
+                  0.5118546485900879,
+                  0.20612676441669464,
+                  1.374286413192749,
+                  -0.3327040374279022,
+                  -0.3327040374279022,
+                  -0.3327040374279022,
+                  -0.11204876750707626,
+                  -0.03710818290710449,
+                  -0.2210235297679901,
+                  -0.2410857081413269,
+                  -0.20341619849205017,
+                  -0.0239926315844059,
+                  -0.24394363164901733,
+                  -0.09185124933719635,
+                  -0.09185124933719635,
+                  -0.09185124933719635,
+                  -0.09185124933719635,
+                  -0.09185124933719635,
+                  -0.09185124933719635,
+                  -0.11027099192142487,
+                  -0.0005304247606545687,
+                  0,
+                  -0.011916132643818855,
+                  -0.0005304247606545687,
+                  -0.0005304247606545687,
+                  -0.011120496317744255,
+                  -0.011120496317744255,
+                  -0.011120496317744255,
+                  -0.011120496317744255,
+                  -0.011120496317744255,
+                  -0.011120496317744255,
+                  0.7466325015016748
+                ],
+                [
+                  -1.6553293466567993,
+                  -1.9855903387069702,
+                  0.3455903232097626,
+                  1.076233983039856,
+                  1.076233983039856,
+                  1.076233983039856,
+                  0,
+                  0,
+                  -0.28517356514930725,
+                  0,
+                  -0.051742278039455414,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.051742278039455414,
+                  -0.30772164463996887,
+                  2.4293930530548096,
+                  -0.30772164463996887,
+                  -0.10804443061351776,
+                  -0.051742278039455414,
+                  -0.051742278039455414,
+                  -0.3215906322002411,
+                  -0.090349942445755,
+                  2.757760763168335,
+                  2.757760763168335,
+                  2.757760763168335,
+                  -0.3162243664264679,
+                  -0.05180848762392998,
+                  -0.3945760428905487,
+                  -0.45163023471832275,
+                  -0.2576278746128082,
+                  -0.04955661669373512,
+                  -0.23974712193012238,
+                  -0.07823886722326279,
+                  -0.07823886722326279,
+                  -0.07823886722326279,
+                  -0.15215055644512177,
+                  -0.07823886722326279,
+                  -0.07823886722326279,
+                  -0.13246594369411469,
+                  -0.09348884224891663,
+                  -0.04753302410244942,
+                  -0.24139109253883362,
+                  -0.02947799675166607,
+                  -0.02947799675166607,
+                  -0.12867464125156403,
+                  -0.12867464125156403,
+                  -0.12867464125156403,
+                  -0.12867464125156403,
+                  -0.12867464125156403,
+                  -0.12867464125156403,
+                  0.008599541667186773
+                ],
+                [
+                  -0.04746469855308533,
+                  -0.04746469855308533,
+                  0.2752631902694702,
+                  -0.07059065252542496,
+                  -0.07059065252542496,
+                  -0.07059065252542496,
+                  -0.10053693503141403,
+                  -0.2019067108631134,
+                  0.8566144108772278,
+                  -0.2019067108631134,
+                  -0.2019067108631134,
+                  -0.10053693503141403,
+                  -0.10053693503141403,
+                  -0.09387084096670151,
+                  -0.09387084096670151,
+                  -0.09387084096670151,
+                  0,
+                  -0.022873910143971443,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.501856803894043,
+                  0,
+                  -0.022873910143971443,
+                  -0.022873910143971443,
+                  -0.022873910143971443,
+                  1.7516545057296753,
+                  7.681098461151123,
+                  0.7404875755310059,
+                  0.847144603729248,
+                  1.6144607067108154,
+                  -5.764555931091309,
+                  -0.501856803894043,
+                  -0.21738651394844055,
+                  -0.21738651394844055,
+                  -0.21738651394844055,
+                  -0.7041015625,
+                  -0.21738651394844055,
+                  -0.21738651394844055,
+                  -0.18831166625022888,
+                  -0.8655858635902405,
+                  -0.3868989944458008,
+                  -1.0472042560577393,
+                  -0.4299442172050476,
+                  -0.4299442172050476,
+                  -0.17300821840763092,
+                  -0.17300821840763092,
+                  -0.17300821840763092,
+                  -0.17300821840763092,
+                  -0.17300821840763092,
+                  -0.17300821840763092,
+                  0.03375726979816982
+                ],
+                [
+                  -0.06520219892263412,
+                  -0.06746099889278412,
+                  0.1855037808418274,
+                  -0.10369464755058289,
+                  -0.10369464755058289,
+                  -0.10369464755058289,
+                  -0.12315891683101654,
+                  -0.24293890595436096,
+                  0.8172621130943298,
+                  -0.24293890595436096,
+                  -0.24293890595436096,
+                  -0.12315891683101654,
+                  -0.12315891683101654,
+                  -0.10122087597846985,
+                  -0.10122087597846985,
+                  -0.10122087597846985,
+                  -0.0009979542810469866,
+                  -0.033793143928050995,
+                  -0.0009979542810469866,
+                  -0.0006531911203637719,
+                  0,
+                  0,
+                  -0.5398603081703186,
+                  -0.00003572929199435748,
+                  -0.032476745545864105,
+                  -0.032476745545864105,
+                  -0.032476745545864105,
+                  1.859138011932373,
+                  -5.623531818389893,
+                  0.7424092292785645,
+                  0.833533525466919,
+                  1.7517752647399902,
+                  7.71763801574707,
+                  -0.5398603081703186,
+                  -0.2685931324958801,
+                  -0.2685931324958801,
+                  -0.2685931324958801,
+                  -0.7557434439659119,
+                  -0.2685931324958801,
+                  -0.2685931324958801,
+                  -0.21066252887248993,
+                  -0.9528226256370544,
+                  -0.39705517888069153,
+                  -1.2051957845687866,
+                  -0.45013493299484253,
+                  -0.45013493299484253,
+                  -0.19466401636600494,
+                  -0.19466401636600494,
+                  -0.19466401636600494,
+                  -0.19466401636600494,
+                  -0.19466401636600494,
+                  -0.19466401636600494,
+                  -0.024852666298344716
+                ],
+                [
+                  -0.0748383104801178,
+                  -0.2610970437526703,
+                  -0.009376972913742065,
+                  -0.14381958544254303,
+                  -0.14381958544254303,
+                  -0.14381958544254303,
+                  -0.0009403481381013989,
+                  -0.0009403481381013989,
+                  -0.8272848129272461,
+                  -0.0009403481381013989,
+                  -0.13839679956436157,
+                  -0.0009403481381013989,
+                  -0.0009403481381013989,
+                  0,
+                  0,
+                  -0.13658256828784943,
+                  -0.15308424830436707,
+                  -0.22176334261894226,
+                  -0.15308424830436707,
+                  -0.00899606291204691,
+                  -0.13658256828784943,
+                  -0.13658256828784943,
+                  0.896753191947937,
+                  0,
+                  -0.04142985865473747,
+                  -0.04142985865473747,
+                  -0.04142985865473747,
+                  -0.4724067449569702,
+                  -0.19416318833827972,
+                  0.9038187861442566,
+                  -1.4864658117294312,
+                  1.3190062046051025,
+                  -0.15207862854003906,
+                  1.0709774494171143,
+                  1.7504940032958984,
+                  1.7504940032958984,
+                  1.7504940032958984,
+                  1.4531527757644653,
+                  1.7504940032958984,
+                  1.7504940032958984,
+                  -0.6081035137176514,
+                  -0.36614248156547546,
+                  -0.24949711561203003,
+                  -0.44286230206489563,
+                  -0.061039797961711884,
+                  -0.061039797961711884,
+                  -0.037226032465696335,
+                  -0.037226032465696335,
+                  -0.037226032465696335,
+                  -0.037226032465696335,
+                  -0.037226032465696335,
+                  -0.037226032465696335,
+                  -0.10134029323211972
+                ],
+                [
+                  -0.25165560841560364,
+                  -0.6255745887756348,
+                  1.4749207496643066,
+                  -0.38324111700057983,
+                  -0.38324111700057983,
+                  -0.38324111700057983,
+                  -0.006010942626744509,
+                  -0.010885429568588734,
+                  -1.0362279415130615,
+                  -0.010885429568588734,
+                  -0.35788097977638245,
+                  -0.006010942626744509,
+                  -0.006010942626744509,
+                  -0.0019927495159208775,
+                  -0.0019927495159208775,
+                  -0.346324622631073,
+                  -0.3665623962879181,
+                  -0.5035869479179382,
+                  -0.3665623962879181,
+                  -0.01245575025677681,
+                  -0.3425324857234955,
+                  -0.3425324857234955,
+                  2.674161672592163,
+                  0,
+                  -0.12714147567749023,
+                  -0.12714147567749023,
+                  -0.12714147567749023,
+                  -0.5845693349838257,
+                  -0.24845047295093536,
+                  -1.7930173873901367,
+                  2.7742154598236084,
+                  -1.2132384777069092,
+                  -0.18167048692703247,
+                  3.023682117462158,
+                  -0.7508134841918945,
+                  -0.7508134841918945,
+                  -0.7508134841918945,
+                  -0.975123405456543,
+                  -0.7508134841918945,
+                  -0.7508134841918945,
+                  3.7957756519317627,
+                  -0.5748237371444702,
+                  -0.15248361229896545,
+                  -0.7186859250068665,
+                  -0.3503950834274292,
+                  -0.3503950834274292,
+                  -0.13089656829833984,
+                  -0.13089656829833984,
+                  -0.13089656829833984,
+                  -0.13089656829833984,
+                  -0.13089656829833984,
+                  -0.13089656829833984,
+                  0.542999497689778
+                ],
+                [
+                  -0.0671592503786087,
+                  -0.10259030759334564,
+                  0.09303442388772964,
+                  -0.12322124093770981,
+                  -0.12322124093770981,
+                  -0.12322124093770981,
+                  -0.0810098871588707,
+                  -0.1918608844280243,
+                  0.8065431714057922,
+                  -0.1918608844280243,
+                  -0.1918608844280243,
+                  -0.0810098871588707,
+                  -0.0810098871588707,
+                  -0.07692601531744003,
+                  -0.07692601531744003,
+                  -0.07692601531744003,
+                  -0.015500348061323166,
+                  -0.05079460144042969,
+                  -0.015500348061323166,
+                  -0.0072676148265600204,
+                  0,
+                  0,
+                  -0.5510867238044739,
+                  -0.0047073969617486,
+                  -0.030678510665893555,
+                  -0.030678510665893555,
+                  -0.030678510665893555,
+                  -0.9519075751304626,
+                  -0.4013546109199524,
+                  0.5438351631164551,
+                  0.9308619499206543,
+                  -1.2196725606918335,
+                  -0.2654891312122345,
+                  -0.5510867238044739,
+                  -0.4689728319644928,
+                  -0.4689728319644928,
+                  -0.4689728319644928,
+                  4.098982334136963,
+                  -0.4689728319644928,
+                  -0.4689728319644928,
+                  -0.0734688937664032,
+                  1.7636758089065552,
+                  4.567471504211426,
+                  1.542930245399475,
+                  -2.804197072982788,
+                  -2.804197072982788,
+                  -0.1520310491323471,
+                  -0.1520310491323471,
+                  -0.1520310491323471,
+                  -0.1520310491323471,
+                  -0.1520310491323471,
+                  -0.1520310491323471,
+                  -0.06831535295714529
+                ],
+                [
+                  -0.09112000465393066,
+                  -0.1516551971435547,
+                  0.0772441104054451,
+                  -0.19047722220420837,
+                  -0.19047722220420837,
+                  -0.19047722220420837,
+                  -0.08621037006378174,
+                  -0.21190756559371948,
+                  0.6088989973068237,
+                  -0.21190756559371948,
+                  -0.2219594120979309,
+                  -0.08621037006378174,
+                  -0.08621037006378174,
+                  -0.08866534382104874,
+                  -0.08866534382104874,
+                  -0.10196404159069061,
+                  -0.031457774341106415,
+                  -0.10516000539064407,
+                  -0.031457774341106415,
+                  -0.0133468396961689,
+                  -0.0008961936691775918,
+                  -0.0008961936691775918,
+                  -0.3225977420806885,
+                  -0.007238028571009636,
+                  -0.06560927629470825,
+                  -0.06560927629470825,
+                  -0.06560927629470825,
+                  -1.1476997137069702,
+                  -0.4033641517162323,
+                  0.779050350189209,
+                  0.5975157618522644,
+                  -1.000674843788147,
+                  -0.40523961186408997,
+                  -0.3209579288959503,
+                  -0.042205147445201874,
+                  -0.042205147445201874,
+                  -0.042205147445201874,
+                  -2.7226672172546387,
+                  -0.042205147445201874,
+                  -0.042205147445201874,
+                  -0.2405843287706375,
+                  1.8192224502563477,
+                  -2.6411352157592773,
+                  1.5904380083084106,
+                  4.460451126098633,
+                  4.460451126098633,
+                  -0.15473225712776184,
+                  -0.15473225712776184,
+                  -0.15473225712776184,
+                  -0.15473225712776184,
+                  -0.15473225712776184,
+                  -0.15473225712776184,
+                  -0.10788390512078186
+                ],
+                [
+                  -0.14658227562904358,
+                  -0.24273696541786194,
+                  0.5249050855636597,
+                  -0.28920045495033264,
+                  -0.28920045495033264,
+                  -0.28920045495033264,
+                  -0.02319987304508686,
+                  -0.0526147335767746,
+                  -0.8257195353507996,
+                  -0.0526147335767746,
+                  -0.07736165076494217,
+                  -0.02319987304508686,
+                  -0.02319987304508686,
+                  -0.018100755289196968,
+                  -0.018100755289196968,
+                  -0.0376422218978405,
+                  -0.0694127306342125,
+                  -0.18446709215641022,
+                  -0.0694127306342125,
+                  -0.02938430942595005,
+                  -0.010773763991892338,
+                  -0.010773763991892338,
+                  -0.17005357146263123,
+                  -0.009910812601447105,
+                  -0.09610124677419662,
+                  -0.09610124677419662,
+                  -0.09610124677419662,
+                  1.3180118799209595,
+                  -0.21417731046676636,
+                  -0.8026955723762512,
+                  -0.8694077134132385,
+                  -0.509149968624115,
+                  -0.17937877774238586,
+                  -0.1497962474822998,
+                  -0.029336610808968544,
+                  -0.029336610808968544,
+                  -0.029336610808968544,
+                  -0.1640852987766266,
+                  -0.029336610808968544,
+                  -0.029336610808968544,
+                  -0.09634573012590408,
+                  -0.26748529076576233,
+                  -0.11064790189266205,
+                  1.5041054487228394,
+                  -0.11952678859233856,
+                  -0.11952678859233856,
+                  1.792604684829712,
+                  1.792604684829712,
+                  1.792604684829712,
+                  1.792604684829712,
+                  1.792604684829712,
+                  1.792604684829712,
+                  0.18318396124909875
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "Welcome to the Rival Chatbot Challenge."
+      ],
+      [
+        "en",
+        "First, let's do some math problems"
+      ],
+      [
+        "en",
+        "Alright! Let's do some harder questions."
+      ],
+      [
+        "en",
+        "Are you ready to begin?"
+      ],
+      [
+        "en",
+        "Great! Are you ready to continue to some word questions?"
+      ],
+      [
+        "en",
+        "Are you ready to go?"
+      ],
+      [
+        "en",
+        "Thank you for taking the Rival Chatbot Challenge"
+      ],
+      [
+        "en",
+        "What is the sum of the following numbers"
+      ],
+      [
+        "en",
+        "What is the largest of the following numbers:"
+      ],
+      [
+        "en",
+        "Please repeat only the words with an even number of letters:"
+      ],
+      [
+        "en",
+        "Please alphabetize the following words:"
+      ],
+      [
+        "en",
+        "Which of the following is an NHL team::"
+      ],
+      [
+        "en",
+        "Which of the following is a baseball team:"
+      ],
+      [
+        "en",
+        "What sports teams in the data set were established:"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "greetings.noresp": [
+          {
+            "answer": ""
+          }
+        ],
+        "greetings.hardquestions": [
+          {
+            "answer": "hardquestionsStart"
+          }
+        ],
+        "greetings.yesno": [
+          {
+            "answer": "yes"
+          }
+        ],
+        "greetings.bye": [
+          {
+            "answer": "goodbye"
+          }
+        ],
+        "questions.sum": [
+          {
+            "answer": "sum"
+          }
+        ],
+        "questions.largest": [
+          {
+            "answer": "largest"
+          }
+        ],
+        "questions.repeateven": [
+          {
+            "answer": "repeateven"
+          }
+        ],
+        "questions.sortwords": [
+          {
+            "answer": "sortwords"
+          }
+        ],
+        "questions.findNHL": [
+          {
+            "answer": "findNHL"
+          }
+        ],
+        "questions.findbaseball": [
+          {
+            "answer": "findbaseball"
+          }
+        ],
+        "questions.establish": [
+          {
+            "answer": "establish"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
