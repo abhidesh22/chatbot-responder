@@ -3,7 +3,7 @@ import { START_OF_HARD_QUESTIONS, READY_YES, CHALLENGE_COMPLETED, PERFORM_SUM, F
 import { NlpManager } from 'node-nlp';
 
 const manager = new NlpManager({ languages: ['en'], forceNER: true });
-
+// This function holds the responsibility of feeding the node-nlp manager with the questins data and their probable answering mechanism
 const langProcessDataFeed = async () => {
 
     manager.addDocument('en', 'Welcome to the Rival Chatbot Challenge.', 'greetings.noresp');
