@@ -140,7 +140,6 @@ export class ChatbotController {
                     } else {
                         console.log('error in fetching dataset');
                     }
-                    gameOver = true;
                     break;
 
                 case FIND_TEAM_PER_ESTABLISHMENT_YEAR:
