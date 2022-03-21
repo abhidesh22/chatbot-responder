@@ -18,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@cygnetops/common": "^1.0.30",
+    "node-nlp": "^4.23.2",
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.21",
     "axios": "^0.26.1",
